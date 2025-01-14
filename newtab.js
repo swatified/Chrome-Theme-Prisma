@@ -1,5 +1,11 @@
-// newtab.js
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
+  // Request new image on page load
+  try {
+    await chrome.runtime.sendMessage({ action: "getNewImage" });
+  } catch (error) {
+    console.error('Error requesting new image:', error);
+  }
+
   // Load background image
   chrome.storage.local.get(['currentImage', 'shortcuts'], function(result) {
     if (result.currentImage) {
