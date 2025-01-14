@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Dynamic GitHub Images Theme",
+  "name": "Prisma",
   "version": "1.0",
-  "description": "Changes new tab background with images from GitHub",
+  "description": "A Fancy Minecraft Theme to light up your new tabs!! New background images on each refresh.",
   "permissions": [
     "storage",
     "tabs"
