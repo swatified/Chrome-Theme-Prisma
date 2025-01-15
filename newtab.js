@@ -1,4 +1,28 @@
 document.addEventListener('DOMContentLoaded', async function() {
+  // Function to update offline status
+  function updateOfflineStatus() {
+    const isOffline = !navigator.onLine;
+    document.body.classList.toggle('offline', isOffline);
+    
+    // Create or update offline alert
+    let offlineAlert = document.querySelector('.offline-alert');
+    if (!offlineAlert && isOffline) {
+      offlineAlert = document.createElement('div');
+      offlineAlert.className = 'offline-alert';
+      offlineAlert.textContent = "You're offline! Connect to the internet to get the most out of this theme.";
+      document.body.appendChild(offlineAlert);
+    } else if (offlineAlert && !isOffline) {
+      offlineAlert.remove();
+    }
+  }
+
+  // Listen for online/offline events
+  window.addEventListener('online', updateOfflineStatus);
+  window.addEventListener('offline', updateOfflineStatus);
+  
+  // Initial check
+  updateOfflineStatus();
+
   // Request new image on page load
   try {
     await chrome.runtime.sendMessage({ action: "getNewImage" });
@@ -7,16 +31,20 @@ document.addEventListener('DOMContentLoaded', async function() {
   }
 
   // Load background image
-  chrome.storage.local.get(['currentImage', 'shortcuts'], function(result) {
-    if (result.currentImage) {
+  chrome.storage.local.get(['currentImage', 'shortcuts', 'isOffline'], function(result) {
+    if (result.currentImage && !result.isOffline) {
       const img = new Image();
       img.onload = function() {
         document.body.style.backgroundImage = `url('${result.currentImage}')`;
       };
       img.onerror = function() {
-        document.body.style.backgroundColor = '#f0f0f0';
+        document.body.classList.add('offline');
+        document.body.style.backgroundColor = '#2c2435';
       };
       img.src = result.currentImage;
+    } else {
+      document.body.classList.add('offline');
+      document.body.style.backgroundColor = '#2c2435';
     }
 
     // Display existing shortcuts
@@ -154,7 +182,6 @@ function displayShortcuts(shortcuts) {
     const shortcutElement = document.createElement('a');
     shortcutElement.className = 'shortcut';
     shortcutElement.href = shortcut.url;
-    shortcutElement.target = '_blank';
     
     const img = createShortcutImage(shortcut);
     

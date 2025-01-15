@@ -235,10 +235,37 @@
   color: white;
   
 }
+.offline-alert {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(102, 51, 153, 0.9);
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  display: none;
+  z-index: 2000;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 14px;
+}
+
+body.offline {
+  background-image: none !important;
+  background-color: #2c2435 !important;
+}
+
+body.offline .offline-alert {
+  display: block;
+}
     
-  </style>
+</style>
 </head>
 <body>
+  <div class="offline-alert">
+    You're offline! Please connect to the internet to get the most out of this theme.
+  </div>
   <div id="overlay"></div>
   <div id="content">
     <form id="search-form" action="https://www.google.com/search" method="get">
