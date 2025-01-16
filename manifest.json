@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Prisma",
+  "name": "Prisma - Classy Minecraft Wallpapers",
   "version": "1.0",
-  "description": "A Fancy Minecraft Theme to light up your new tabs!! New dynamic background on each refresh.",
+  "description": "A Fancy Minecraft Theme to light up your new tabs!! New dynamic background/wallpaper on each refresh.",
   "icons": {
     "16": "icons/icon16.png",
     "48": "icons/icon48.png",
