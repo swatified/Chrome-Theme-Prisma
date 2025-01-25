@@ -1,22 +1,16 @@
 document.addEventListener('DOMContentLoaded', async function() {
 
-  // Using Chrome's Default SearchBar
   document.getElementById('search-form').addEventListener('submit', (e) => {
     e.preventDefault();
     const input = document.getElementById('search-input');
     const query = input.value.trim();
     
-    // If it looks like a URL, navigate directly
-    if (query.includes('.') && !query.includes(' ')) {
-      let url = query;
-      if (!url.startsWith('http://') && !url.startsWith('https://')) {
-        url = 'https://' + url;
-      }
-      window.location.href = url;
-    } else {
-      // Use Chrome's omnibox search
-      window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+    // Always treat input as URL
+    let url = query;
+    if (!url.startsWith('http://') && !url.startsWith('https://')) {
+      url = 'https://' + url;
     }
+    window.location.href = url;
   });
 
   // Function to update offline status
