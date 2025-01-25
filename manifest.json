@@ -9,8 +9,7 @@
     "128": "icons/icon128.png"
   },
   "permissions": [
-    "storage",
-    "search"
+    "storage"
   ],
   "host_permissions": [
     "https://api.github.com/*",
