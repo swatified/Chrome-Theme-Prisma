@@ -25,7 +25,6 @@
 
 <p align="center">
   <img src="images/screenshot0.png" alt="Screenshot 1" width="400"/>
-  <img src="images/screenshot1.png" alt="Screenshot 1" width="400"/>
   <img src="images/screenshot2.png" alt="Screenshot 2" width="400"/>
 </p>
 <br/><br/>
