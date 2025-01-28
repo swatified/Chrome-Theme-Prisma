@@ -24,8 +24,9 @@
 ## 🖼️ Screenshots
 
 <p align="center">
-  <img src="https://i.ibb.co/C9hc7vD/Screenshot-2025-01-28-153643.png" alt="Screenshot 1" width="400"/>
-  <img src="https://i.ibb.co/tZppWr8/Screenshot-2025-01-28-153846.png" alt="Screenshot 2" width="400"/>
+  <img src="images/screenshot0.png" alt="Screenshot 1" width="400"/>
+  <img src="images/screenshot1.png" alt="Screenshot 1" width="400"/>
+  <img src="images/screenshot2.png" alt="Screenshot 2" width="400"/>
 </p>
 <br/><br/>
 
